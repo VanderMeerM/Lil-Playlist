@@ -1,20 +1,25 @@
-import React, { Component } from "react";
+import React from "react";
 
-const SongList = ({ songs } ) =>  {
+
+function SongList (props) {
+   
+    return(
+           
+    props.songs.map (song => {
+        return(
+    <tr key={song.id} className ="song-row__purple">
+        <td>{song.song}</td>
+        <td>{song.artist}</td>
+        <td>{song.genre}</td>
+        <td>{song.rating}</td>
+        <button onClick={props.deleteSong}> Delete song</button>
+    </tr>    
+    )}
+       
+     
     
-    const allSongs = songs 
-    ? songs.map(song => (
-                <li>{song.song}, 
-                {song.artist},
-                {song.genre},
-                {song.rating}
-                <button> Verwijder song</button>
-                </li>
     ))
-    :"";
-    
+}
 
-return (allSongs)
-    }    
     
-    export default SongList;
+export default SongList;

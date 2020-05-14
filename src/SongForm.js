@@ -1,15 +1,45 @@
-import React, { Component } from "react";
-import SongList from "./SongList"
-import InputField from "./InputField"
+import React from "react";
 
-const SongForm = ( { addSong } ) => {
+
+
+const SongForm = ( { addSong, clickHeader} ) => {
 
     return(
-        <div>
-         <InputField />
-         <button onClick={addSong} type="submit"> Add song</button>
-        <SongList />
-        </div>
+        
+        <form >
+        <input
+          placeholder="Song"
+          type="text"
+          id="song"
+          onClick={clickHeader}
+          ></input>
+        <input 
+        placeholder="Artist"
+        type="text"
+        id="artist"
+       // onChange={this.onInput}
+        ></input>
+        <select 
+        id="genre" name="genre">
+          <option value=""></option>
+          <option value="Rock">Rock</option>
+          <option value="Jazz">Jazz</option>
+          <option value="Pop">Pop</option>
+        </select>
+       <select 
+        id="rating" name="rating">
+        <option value=""></option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        </select>
+     
+        <button onClick={addSong} type="submit"> Add song</button>
+         </form>
+               
+       
     )}
 
 
