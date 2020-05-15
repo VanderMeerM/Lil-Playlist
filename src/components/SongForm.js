@@ -11,13 +11,11 @@ const SongForm = ( { addSong, clickHeader} ) => {
           placeholder="Song"
           type="text"
           id="song"
-          onClick={clickHeader}
           ></input>
         <input 
         placeholder="Artist"
         type="text"
         id="artist"
-       // onChange={this.onInput}
         ></input>
         <select 
         id="genre" name="genre">

@@ -1,6 +1,8 @@
 import React, {Component} from "react";
-import SongForm from "./SongForm"
-import SongList from "./SongList"
+import SongForm from "./components/SongForm"
+import Header from "./components/Header"
+import SongList from "./components/SongList"
+
 
 class SongOverview extends Component {
   
@@ -40,33 +42,152 @@ class SongOverview extends Component {
     console.log('hallo')
   }
 
-  clickHeader = (header) => {
-    const sort = this.state.songs.sort((a,b) => (a.song > b.song) ? 1 : -1);
-    console.log(sort)
-   }
-   
+  clickHeaderSong = () => {
   
- 
+    let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("table");
+    switching = true;
+    dir = "asc";
+      while (switching) {
+      switching = false;
+      rows = table.rows;
+      
+      for (i = 1; i < (rows.length - 1); i++) {
+      
+        shouldSwitch = false;
+        x = rows[i].getElementsByTagName("TD")[0];
+        y = rows[i + 1].getElementsByTagName("TD")[0];
+        if (dir === "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        shouldSwitch = true;
+        break;
+        }
+      } else if (dir ==="desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+      if (shouldSwitch) {
+        
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        switchcount ++;
+      } else {
+        if (switchcount === 0 && dir === "asc") {
+          dir = "desc";
+          switching = true;
+      }
+    }
+  }
+}
+        
+clickHeaderArtist() {
+  
+  let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("table");
+  switching = true;
+  dir = "asc";
+    while (switching) {
+    switching = false;
+    rows = table.rows;
+    
+    for (i = 1; i < (rows.length - 1); i++) {
+    
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("TD")[1];
+      y = rows[i + 1].getElementsByTagName("TD")[1];
+      if (dir === "asc") {
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+      shouldSwitch = true;
+      break;
+      }
+    } else if (dir ==="desc") {
+      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+        shouldSwitch = true;
+        break;
+      }
+    }
+  }
+    if (shouldSwitch) {
+      
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchcount ++;
+    } else {
+      if (switchcount === 0 && dir === "asc") {
+        dir = "desc";
+        switching = true;
+    }
+  }
+}
+}
+
+clickHeaderRating() {
+  
+  let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("table");
+  switching = true;
+  dir = "asc";
+    while (switching) {
+    switching = false;
+    rows = table.rows;
+    
+    for (i = 1; i < (rows.length - 1); i++) {
+    
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("TD")[3];
+      y = rows[i + 1].getElementsByTagName("TD")[3];
+      if (dir === "asc") {
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+      shouldSwitch = true;
+      break;
+      }
+    } else if (dir ==="desc") {
+      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+        shouldSwitch = true;
+        break;
+      }
+    }
+  }
+    if (shouldSwitch) {
+      
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchcount ++;
+    } else {
+      if (switchcount === 0 && dir === "asc") {
+        dir = "desc";
+        switching = true;
+    }
+  }
+}
+}
+
+clickRating1() {
+  console.log('hallo')
+}
 
   render() {
     return (
       <div>
         <h1> Marcello's Lil' playlist</h1>
-          <SongForm addSong={this.addSong}
-          clickHeader={this.clickHeader}/>
-		      <table style={{width:100}}>
-		        <tr className="song-header">  
-			        <th className="song-row__item" onClick={this.clickHeader}>Song</th>
-			        <th className="song-row__item">Artist</th>
-			        <th className="song-row__item">Genre</th>
-			        <th className="song-row__item">Rating</th>
-			      </tr>
-                    	   
-         <SongList songs={this.state.songs}
-                deleteSong = {this.deleteSong}/>
+          <SongForm addSong={this.addSong}/>
+
+ <table id="table" style={{width:100}}>
           
+          <Header 
+          clickArtist={this.clickHeaderArtist}
+          clickSong={this.clickHeaderSong}
+          clickRating={this.clickHeaderRating} />
+		     		                           	   
+         <SongList songs={this.state.songs}
+           deleteSong = {this.deleteSong}/>
+
          </table> 
-         </div>
+               
+                </div>
      
     );
   }
