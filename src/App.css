@@ -20,30 +20,43 @@ padding: 0 100px;
 
 }
 
-
 .song-row__purple td {
   background-color: purple;
   color: white;
   font-weight: bold;
   padding: 0 20px;
   text-align: center;
- 
+   
  }
 
-form {
+ form {
   background-color: red;
   padding: 20px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
  
 }
 
-input, select {
+select, input {
   width: 200px;
   margin: 0 20px;
-  height: auto;
+  height: 30px;
+  
 }
 
-button {
+input {
+  height: 25px;
+}
+
+td {
+  min-width: 100px;
+}
+
+
+form button {
   margin: 0 20px;
   border-radius: 25%;
   color: white;
@@ -51,4 +64,20 @@ button {
   padding: 10px;
 }
 
+button {
+  width: 100px;
+  margin-left: 10px;
+}
+
+link,a {
+  text-decoration: none;
+  font-weight: bold;
+  color: pink;
+}
+
+main {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-style: italic;
+  padding: 0 40px;
+}
 

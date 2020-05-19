@@ -1,8 +1,8 @@
 import React from "react";
 
 
-
-const SongForm = ( { addSong, clickHeader} ) => {
+const SongForm = ( { addSong } ) => {
+  
 
     return(
         
@@ -19,14 +19,14 @@ const SongForm = ( { addSong, clickHeader} ) => {
         ></input>
         <select 
         id="genre" name="genre">
-          <option value=""></option>
+          <option value="">Kies genre</option>
           <option value="Rock">Rock</option>
           <option value="Jazz">Jazz</option>
           <option value="Pop">Pop</option>
         </select>
        <select 
         id="rating" name="rating">
-        <option value=""></option>
+      <option value="">Bepaal rating</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>

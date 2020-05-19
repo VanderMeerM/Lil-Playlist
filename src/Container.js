@@ -10,8 +10,11 @@ class SongOverview extends Component {
     super()
     this.state = 
     {
-      songs: [ 
-      ]
+      songs: [{id: 0, 
+        song: "Dancing Queen",
+        artist: "Abba", 
+        genre: "Pop", 
+        rating: 4}]   
     }
     
   }
@@ -38,11 +41,41 @@ class SongOverview extends Component {
     )
   }
 
-  deleteSong = (song) => {
-    console.log('hallo')
-  }
+ deleteSong() {
+      let index, table = document.getElementById("table");
+            for(let i = 1; i < table.rows.length; i++)
+            {
+                table.rows[i].cells[4].onclick = function() 
+                {
+                       index = this.parentElement.rowIndex;
+                        table.deleteRow(index);
+                    }
+                                  
+                };
+                
+            }
 
-  clickHeaderSong = () => {
+filterGenre = (event) => {
+  
+  //let table = document.getElementById("table");
+
+  let songs = this.state.songs;
+  let filter = songs.filter(song => song.genre === event.target.value);
+  console.log(filter)
+     }
+
+/*
+  for (var i = 1; i < select.length; i++) {
+      var txt = select.options[0].text;
+            
+     if (txt.substring(0, selectedGenre.length).toLowerCase() !== selectedGenre.toLowerCase() && selectedGenre.trim() !== "") {
+          select.options[i].style.display = 'none';
+      } else {
+          select.options[i].style.display = 'list-item';
+      }
+  */
+          
+    clickHeaderSong() {
   
     let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("table");
@@ -125,7 +158,7 @@ clickHeaderArtist() {
 }
 
 clickHeaderRating() {
-  
+    
   let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("table");
   switching = true;
@@ -139,6 +172,7 @@ clickHeaderRating() {
       shouldSwitch = false;
       x = rows[i].getElementsByTagName("TD")[3];
       y = rows[i + 1].getElementsByTagName("TD")[3];
+     
       if (dir === "asc") {
       if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
       shouldSwitch = true;
@@ -165,11 +199,9 @@ clickHeaderRating() {
 }
 }
 
-clickRating1() {
-  console.log('hallo')
-}
-
   render() {
+
+    
     return (
       <div>
         <h1> Marcello's Lil' playlist</h1>
@@ -180,10 +212,11 @@ clickRating1() {
           <Header 
           clickArtist={this.clickHeaderArtist}
           clickSong={this.clickHeaderSong}
-          clickRating={this.clickHeaderRating} />
+          clickRating={this.clickHeaderRating}
+          filter = {this.filterGenre} />
 		     		                           	   
          <SongList songs={this.state.songs}
-           deleteSong = {this.deleteSong}/>
+          deleteSong = {this.deleteSong}/>
 
          </table> 
                

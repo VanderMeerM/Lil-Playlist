@@ -12,8 +12,8 @@ function App() {
    
    <Switch>
              
-<Link to="/">Home</Link><div></div>
-<Link to="/About">About me</Link> 
+<Link to="/" >Home</Link><div></div>
+<Link to="/About">About this project</Link> 
 
 <Route component = {Container} exact path="/" />
 <Route component = {About} path="/About" />
