@@ -1,11 +1,11 @@
 import React from "react";
 
 
-function Header({ clickSong, clickArtist, clickRating, filter }) {
-	
+function Header ({ clickSong, clickArtist, clickRating, filter }) {
+
+		
 	return (
-
-
+		  		
 		<tr className="song-header">
 			<th className="song-row__item" onClick={clickSong}>Song</th>
 			<th className="song-row__item" onClick={clickArtist}>Artist</th>
@@ -22,8 +22,6 @@ function Header({ clickSong, clickArtist, clickRating, filter }) {
 				*/}
 			<th className="song-row__item" onClick={clickRating} >Rating</th>
 		</tr>
-
 	)
 }
-
 export default Header;
