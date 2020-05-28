@@ -1,14 +1,14 @@
 import React from "react";
 
 
-function Header ({ clickSong, clickArtist, clickRating, filter }) {
+function Header ({ clickHeader, filter }) {
 
 		
 	return (
-		  		
+		 <thead> 		
 		<tr className="song-header">
-			<th className="song-row__item" onClick={clickSong}>Song</th>
-			<th className="song-row__item" onClick={clickArtist}>Artist</th>
+			<th className="song-row__item" onClick={()=>clickHeader(0)}>Song</th>
+			<th className="song-row__item" onClick={()=>clickHeader(1)}>Artist</th>
 			<th className="song-row__item">Genre</th>
 			
 				{/* nodig voor poging genre te filteren 
@@ -20,8 +20,9 @@ function Header ({ clickSong, clickArtist, clickRating, filter }) {
 				</select>
 			</th>
 				*/}
-			<th className="song-row__item" onClick={clickRating} >Rating</th>
+			<th className="song-row__item" onClick={()=>clickHeader(3)}>Rating</th>
 		</tr>
+		</thead>
 	)
 }
 export default Header;

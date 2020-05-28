@@ -12,13 +12,15 @@ function SongList (props) {
            
     props.songs.map (song => {
         return(
-      <tr key={song.id}  className ="song-row__purple">
+      <tbody key={song.id} className ="song-row__purple">
+      <tr >
         <td>{song.song}</td>
         <td>{song.artist}</td>
         <td>{song.genre}</td>
         <td>{song.rating}</td>
         <td style={style} onClick= {props.deleteSong}>Delete song</td>
     </tr>    
+    </tbody>
     )}
        
      
