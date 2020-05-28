@@ -50,9 +50,9 @@ class SongOverview extends Component {
                        index = this.parentElement.rowIndex;
                         table.deleteRow(index);
                     }
-                                  
-                };
-                
+                                 
+               };
+   
             }
 
 filterGenre = (event) => {
@@ -75,7 +75,7 @@ filterGenre = (event) => {
       }
   */
           
-    clickHeaderSong() {
+    clickHeader(n) {
   
     let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("table");
@@ -88,8 +88,8 @@ filterGenre = (event) => {
       for (i = 1; i < (rows.length - 1); i++) {
       
         shouldSwitch = false;
-        x = rows[i].getElementsByTagName("TD")[0];
-        y = rows[i + 1].getElementsByTagName("TD")[0];
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
         if (dir === "asc") {
         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
         shouldSwitch = true;
@@ -115,91 +115,9 @@ filterGenre = (event) => {
     }
   }
 }
-        
-clickHeaderArtist() {
-  
-  let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = document.getElementById("table");
-  switching = true;
-  dir = "asc";
-    while (switching) {
-    switching = false;
-    rows = table.rows;
-    
-    for (i = 1; i < (rows.length - 1); i++) {
-    
-      shouldSwitch = false;
-      x = rows[i].getElementsByTagName("TD")[1];
-      y = rows[i + 1].getElementsByTagName("TD")[1];
-      if (dir === "asc") {
-      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-      shouldSwitch = true;
-      break;
-      }
-    } else if (dir ==="desc") {
-      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-        shouldSwitch = true;
-        break;
-      }
-    }
-  }
-    if (shouldSwitch) {
-      
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-      switchcount ++;
-    } else {
-      if (switchcount === 0 && dir === "asc") {
-        dir = "desc";
-        switching = true;
-    }
-  }
-}
-}
+       
 
-clickHeaderRating() {
-    
-  let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = document.getElementById("table");
-  switching = true;
-  dir = "asc";
-    while (switching) {
-    switching = false;
-    rows = table.rows;
-    
-    for (i = 1; i < (rows.length - 1); i++) {
-    
-      shouldSwitch = false;
-      x = rows[i].getElementsByTagName("TD")[3];
-      y = rows[i + 1].getElementsByTagName("TD")[3];
-     
-      if (dir === "asc") {
-      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-      shouldSwitch = true;
-      break;
-      }
-    } else if (dir ==="desc") {
-      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-        shouldSwitch = true;
-        break;
-      }
-    }
-  }
-    if (shouldSwitch) {
-      
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-      switchcount ++;
-    } else {
-      if (switchcount === 0 && dir === "asc") {
-        dir = "desc";
-        switching = true;
-    }
-  }
-}
-}
-
-  render() {
+render() {
 
     
     return (
@@ -210,9 +128,7 @@ clickHeaderRating() {
  <table id="table" style={{width:100}}>
           
           <Header 
-          clickArtist={this.clickHeaderArtist}
-          clickSong={this.clickHeaderSong}
-          clickRating={this.clickHeaderRating}
+          clickHeader={this.clickHeader}
           filter = {this.filterGenre} />
 		     		                           	   
          <SongList songs={this.state.songs}
