@@ -13,6 +13,7 @@ margin: 20px auto;
 
 }
 
+<<<<<<< HEAD
 .song-header th,
 .song-header select {
 background-color: tomato;
@@ -20,6 +21,13 @@ color: white;
 font-weight: bold;
 padding: 0 100px;
 margin: 0;
+=======
+.song-header th {
+background-color: tomato;
+color: white;
+padding: 0 100px;
+
+>>>>>>> 3b128b28d34a24bbf4015aa19be369d29827a4f8
 }
 
 .song-row__purple {
@@ -36,6 +44,10 @@ margin: 0;
   background-color: violet;
  }
  
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3b128b28d34a24bbf4015aa19be369d29827a4f8
  form {
   background-color: red;
   padding: 20px;
@@ -51,6 +63,10 @@ select, input {
   width: 200px;
   margin: 0 20px;
   height: 30px;
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 3b128b28d34a24bbf4015aa19be369d29827a4f8
 }
 
 input {

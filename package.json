@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "playlist",
+=======
+  "name": "playlist2",
+>>>>>>> 3b128b28d34a24bbf4015aa19be369d29827a4f8
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,6 +12,10 @@
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+<<<<<<< HEAD
+=======
+    "react-router-dom": "^5.2.0",
+>>>>>>> 3b128b28d34a24bbf4015aa19be369d29827a4f8
     "react-scripts": "3.4.1"
   },
   "scripts": {
